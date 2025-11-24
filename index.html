@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF‑8">
+  <title>코드 보기</title>
+  <!-- highlight.js CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
+  <style>
+    body { font-family: Arial, sans‑serif; margin: 20px; }
+    .btn { margin‑right: 10px; padding: 8px 16px; background‑color: #007BFF; color: white; border: none; cursor: pointer; border‑radius: 4px; }
+    .btn:hover { background‑color: #0056b3; }
+    pre { background‑color: #f5f5f5; padding: 16px; border‑radius: 4px; overflow‑auto; max‑height: 600px; }
+  </style>
+</head>
+<body>
+
+  <h1>코드 파일 보기</h1>
+  <div>
+    <button class="btn" onclick="loadFile('countpixels.py')">countpixels.py</button>
+    <button class="btn" onclick="loadFile('line.py')">line.py</button>
+    <button class="btn" onclick="loadFile('obstacleDetection.py')">obstacleDetection.py</button>
+  </div>
+
+  <pre><code id="codeArea" class="language‑python">여기에 코드가 로드됩니다...</code></pre>
+
+  <!-- highlight.js 스크립트 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+
+  <script>
+    function loadFile(filename) {
+      const rawUrlBase = "https://raw.githubusercontent.com/farsongsong/R‑E/main/";
+      const url = rawUrlBase + filename;
+
+      fetch(url)
+        .then(response => {
+          if (!response.ok) throw new Error("파일을 불러오지 못했습니다: " + response.status);
+          return response.text();
+        })
+        .then(text => {
+          const codeElem = document.getElementById("codeArea");
+          codeElem.textContent = text;
+          hljs.highlightElement(codeElem);
+        })
+        .catch(err => {
+          const codeElem = document.getElementById("codeArea");
+          codeElem.textContent = "오류: " + err;
+        });
+    }
+
+    // 페이지 로드 시 기본 파일 로드
+    window.onload = () => loadFile('countpixels.py');
+  </script>
+
+</body>
+</html>
