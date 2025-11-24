@@ -3,21 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <title>코드 보기</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<!-- highlight.js CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github.min.css">
 <style>
   body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #1e1e2f;
-    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    background: #f0f4f8;
+    color: #333;
     margin: 0;
-    padding: 20px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   h1 {
     text-align: center;
     margin-bottom: 30px;
     font-size: 2rem;
-    color: #ffdd57;
+    color: #1a73e8;
   }
 
   .buttons {
@@ -28,37 +34,42 @@
   .btn {
     margin: 5px;
     padding: 10px 20px;
-    background: #ff6b6b;
+    background: #1a73e8;
     color: #fff;
     border: none;
-    border-radius: 6px;
+    border-radius: 8px;
     cursor: pointer;
-    font-weight: bold;
+    font-weight: 600;
     transition: all 0.3s ease;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
   }
 
   .btn:hover {
-    background: #ff4757;
+    background: #155ab6;
     transform: scale(1.05);
   }
 
   pre {
-    background: #2e2e3e;
+    background: #fff;
     padding: 20px;
     border-radius: 10px;
     overflow-x: auto;
     max-height: 600px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border: 1px solid #ddd;
+    width: 90%;
+    max-width: 1000px;
   }
 </style>
 </head>
 <body>
 
 <h1>코드 파일 보기</h1>
+
 <div class="buttons">
   <button class="btn" onclick="loadFile('countpixels.py')">countpixels.py</button>
   <button class="btn" onclick="loadFile('line.py')">line.py</button>
-  <button class="btn" onclick="loadFile('Create%20countpixels.py')">Create countpixels.py</button>
+  <button class="btn" onclick="loadFile('obstacleDetection.py')">obstacleDetection.py</button>
 </div>
 
 <pre><code id="codeArea" class="language-python">여기에 코드가 로드됩니다...</code></pre>
@@ -87,10 +98,9 @@ function loadFile(filename) {
     });
 }
 
-// 기본 파일 로드
-window.onload = () => loadFile('countpixels.py');
+// 초기 화면 파일 설정
+window.onload = () => loadFile('obstacleDetection.py');
 </script>
 
 </body>
 </html>
-
