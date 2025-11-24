@@ -2,18 +2,19 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>코드 보기</title>
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<!-- Google Fonts: 'Poppins' + 'Fira Code' (코드용 폰트) -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
 <!-- highlight.js CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github.min.css">
 <style>
   body {
     font-family: 'Poppins', sans-serif;
-    background: #f0f4f8;
+    background: #f9fafb;
     color: #333;
     margin: 0;
-    padding: 30px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -21,25 +22,28 @@
 
   h1 {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
     font-size: 2rem;
     color: #1a73e8;
   }
 
   .buttons {
-    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     margin-bottom: 20px;
   }
 
   .btn {
     margin: 5px;
-    padding: 10px 20px;
+    padding: 10px 22px;
     background: #1a73e8;
     color: #fff;
     border: none;
     border-radius: 8px;
     cursor: pointer;
     font-weight: 600;
+    font-size: 1rem;
     transition: all 0.3s ease;
     box-shadow: 0 3px 6px rgba(0,0,0,0.1);
   }
@@ -52,13 +56,34 @@
   pre {
     background: #fff;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 12px;
     overflow-x: auto;
-    max-height: 600px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    max-height: 70vh;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     border: 1px solid #ddd;
     width: 90%;
     max-width: 1000px;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  /* 반응형: 화면이 좁으면 코드 영역 조금 작게 */
+  @media (max-width: 768px) {
+    pre {
+      font-size: 0.85rem;
+      padding: 15px;
+    }
+    .btn {
+      padding: 8px 16px;
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 1.5rem; }
+    pre { font-size: 0.8rem; padding: 12px; }
+    .btn { padding: 6px 12px; font-size: 0.85rem; }
   }
 </style>
 </head>
