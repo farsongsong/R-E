@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>코드 뷰어</title>
+<title>R&E 자율주행 코드 뷰어</title>
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
 <!-- highlight.js CSS -->
@@ -18,6 +18,20 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  h1 {
+    font-family: 'Fira Code', monospace;
+    color: #1a73e8;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  p.description {
+    font-family: 'Roboto Mono', monospace;
+    color: #555;
+    margin-bottom: 20px;
+    text-align: center;
   }
 
   .buttons {
@@ -83,6 +97,9 @@
 </head>
 <body>
 
+<h1>R&E 자율주행 코드 뷰어</h1>
+<p class="description">버튼을 클릭하면 해당 파이썬 코드가 아래에 표시됩니다.</p>
+
 <div class="buttons">
   <button class="btn" onclick="loadFile('countpixels.py')">countpixels.py</button>
   <button class="btn" onclick="loadFile('line.py')">line.py</button>
@@ -127,3 +144,4 @@ window.onload = () => loadFile('obstacleDetection.py');
 
 </body>
 </html>
+
