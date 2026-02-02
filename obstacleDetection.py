@@ -73,7 +73,7 @@ class UltrasonicSensor:
 # 메인 루프 (초음파 + 신호등 감지)
 # ---------------------------------------------------------
 if __name__ == '__main__':
-    print("🔧 I2C 카 컨트롤러 초기화 중...")
+    print("I2C 카 컨트롤러 초기화 중...")
     car = YB_Pcb_Car()
     sensor = UltrasonicSensor(23, 24)
 
@@ -116,7 +116,7 @@ if __name__ == '__main__':
 
             print(f"거리: {dist:.1f}cm | 빨강: {red_area} | 초록: {green_area}")
 
-            # === 1️. 장애물 감지 ===
+            # === 1. 장애물 감지 ===
             if dist < SAFE_DISTANCE:
                 print("장애물 감지 → 회피 중...")
                 car.Car_Stop()
@@ -133,14 +133,14 @@ if __name__ == '__main__':
                 stopped_due_to_obstacle = False
                 stopped_due_to_red = False  # 신호와 무관하게 초기화
 
-            # === 2️. 빨간불 감지 ===
+            # === 2. 빨간불 감지 ===
             elif red_area > 1500:
                 if not stopped_due_to_red:
                     print("빨간불 감지 → 정지")
                     car.Car_Stop()
                     stopped_due_to_red = True
 
-            # === 3️. 초록불 감지 ===
+            # === 3. 초록불 감지 ===
             elif green_area > 1500:
                 if stopped_due_to_red:
                     print("초록불 감지 → 다시 출발")
@@ -149,7 +149,7 @@ if __name__ == '__main__':
                 else:
                     car.Car_Run(SPEED, SPEED)
 
-            # === 4️. 평상시 주행 ===
+            # === 4. 평상시 주행 ===
             else:
                 if not stopped_due_to_red:  # 빨간불 중에는 대기
                     car.Car_Run(SPEED, SPEED)
